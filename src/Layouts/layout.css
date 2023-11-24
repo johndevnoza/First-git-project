@@ -1,0 +1,15 @@
+.headerWrapper {
+  width: 100%;
+  background-color: rgb(32, 32, 41);
+  color: whitesmoke;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 35px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.headerLists {
+  display: flex;
+  gap: 15px;
+}
