@@ -8,6 +8,17 @@
   justify-content: space-around;
   font-size: 35px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background: radial-gradient(rgb(30, 22, 61), rgb(52, 58, 77));
+  background-size: 280%;
+  animation: headerAnim 4s infinite linear;
+}
+@keyframes headerAnim {
+  0% {
+    background-position-y: 0%;
+  }
+  100% {
+    background-position-x: 150%;
+  }
 }
 .headerLists {
   display: flex;

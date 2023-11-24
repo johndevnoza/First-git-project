@@ -16,7 +16,6 @@ export default function Header() {
           <Link to={"/about"} className="test">
             <span>Account</span>
           </Link>
-          <span>test moree!!! finall</span>
         </li>
       </ul>
     </div>
