@@ -13,7 +13,7 @@ export default function Header() {
       <ul className="headerLists">
         <li>
           <Link to={"/about"}>About</Link>
-        <FontAwesomeIcon icon="cube" />
+          <FontAwesomeIcon icon="cube" />
         </li>
         <li>
           <Link to={"/about"}>About</Link>
