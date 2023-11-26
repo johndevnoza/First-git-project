@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "../assets/Icons/icons"; // Adjust the path base
 export default function Header() {
   return (
     <div className="headerWrapper">
-      <div className="logo">
+      <Link to={"/"} className="logo">
         <FontAwesomeIcon icon="cube" />
-      </div>
+      </Link>
       <ul className="headerLists">
         <li>
           <Link to={"/about"}>About</Link>

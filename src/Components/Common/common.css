@@ -1,0 +1,75 @@
+.card {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto auto 3fr auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 518px;
+  gap: 6px;
+  max-height: fit-content;
+  border: solid 3px rgb(168, 168, 168);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  background: radial-gradient(rgb(30, 22, 61), rgb(24, 43, 105));
+  background-size: 280%;
+  animation: headerAnim 3s infinite linear;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+}
+@keyframes headerAnim {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 150%;
+  }
+}
+
+.card:hover {
+  background-color: rgb(255, 221, 170);
+}
+
+.card img {
+  width: 212px;
+  height: 212px;
+  object-fit: cover;
+  border-bottom: solid 2px gray;
+  margin: auto;
+  border-radius: 8px;
+  border: solid 3px rgb(202, 103, 10);
+  transition: all ease 0.2s;
+}
+.card:hover img {
+  transform: translateY(-6%);
+}
+
+.card p,
+h4,
+h3,
+p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.card h3 {
+  cursor: pointer;
+  font-size: small;
+  text-align: center;
+}
+.card h4 {
+  font-size: x-large;
+  text-align: center;
+  white-space: nowrap;
+
+}
+.card span {
+  text-align: center;
+  padding: 4px 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  border-radius: 6px;
+  width: 100%;
+  background-color: rgb(202, 103, 10);
+}
