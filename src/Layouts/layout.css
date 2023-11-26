@@ -1,25 +1,20 @@
+.header {
+  width: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background: radial-gradient( #ff9100, #ff5b5b);
+  background-size: 280%;
+  animation: headerAnim 2s infinite linear;
+}
 .headerWrapper {
   width: 100%;
-  background-color: rgb(32, 32, 41);
   margin-bottom: 35px;
   color: whitesmoke;
   display: flex;
   height: 100px;
   align-items: center;
-  justify-content: space-around;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background: radial-gradient(rgb(30, 22, 61), rgb(24, 43, 105));
-  background-size: 280%;
-  animation: headerAnim 3s infinite linear;
+  justify-content: space-between;
 }
-@keyframes headerAnim {
-  0% {
-    background-position-x: 0%;
-  }
-  100% {
-    background-position-x: 150%;
-  }
-}
+
 .headerLists {
   display: flex;
   gap: 5px;
@@ -33,7 +28,7 @@ ul li {
   gap: 10px;
 }
 ul li:hover {
-  background-color: rgba(68, 185, 253, 0.39);
+  background-color: rgba(255, 200, 50, 0.747);
 }
 .logo {
   display: flex;
@@ -41,8 +36,7 @@ ul li:hover {
   animation: spin 2s ease infinite;
 }
 .logo:hover {
- filter: drop-shadow(0px 1px 8px rgb(116, 234, 255));
-
+  filter: drop-shadow(0px 1px 8px rgb(255, 252, 50));
 }
 
 @keyframes spin {

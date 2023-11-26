@@ -1,9 +1,9 @@
 import React from "react";
 import "./common.css";
 
-export default function Card({ title, price, description, category, image }) {
+export default function Card({ title, price, description, category, image, className="card" }) {
   return (
-    <div className="card">
+    <div className={className}>
       <img src={image} alt="title" />
       <h3>{category}</h3>
       <h4>{title}</h4>
