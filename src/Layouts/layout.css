@@ -1,20 +1,20 @@
 .headerWrapper {
   width: 100%;
   background-color: rgb(32, 32, 41);
+  margin-bottom: 35px;
   color: whitesmoke;
   display: flex;
   height: 100px;
   align-items: center;
   justify-content: space-around;
-  font-size: 35px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background: radial-gradient(rgb(30, 22, 61), rgb(52, 58, 77));
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background: radial-gradient(rgb(30, 22, 61), rgb(24, 43, 105));
   background-size: 280%;
-  animation: headerAnim 4s infinite linear;
+  animation: headerAnim 3s infinite linear;
 }
 @keyframes headerAnim {
   0% {
-    background-position-y: 0%;
+    background-position-x: 0%;
   }
   100% {
     background-position-x: 150%;
@@ -22,5 +22,36 @@
 }
 .headerLists {
   display: flex;
-  gap: 15px;
+  gap: 5px;
+}
+ul li {
+  display: flex;
+  font-size: 25px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 10px;
+}
+ul li:hover {
+  background-color: rgba(68, 185, 253, 0.39);
+}
+.logo {
+  display: flex;
+  font-size: 55px;
+  animation: spin 2s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+.footerWrapper {
+  margin-top: 55px;
 }
