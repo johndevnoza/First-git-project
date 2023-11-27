@@ -99,3 +99,6 @@ p {
     transform: rotate(360deg);
   }
 }
+.singleWrapper h1 {
+  color: black;
+}

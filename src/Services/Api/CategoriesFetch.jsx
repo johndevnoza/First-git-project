@@ -2,13 +2,13 @@ import {
   BASE_URL,
   ALL_CATEGORIES,
   IN_CATEGORY,
-  ALL_PRODUCTS,
 } from "../../Utils/constants.js";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Card from "../../Components/Common/Card.jsx";
 
 import "./Services.css";
 
@@ -36,8 +36,8 @@ export function CategoriesFetch() {
           <Link to={""}>All</Link>
           <div className="categoriesList">
             {categories.map((category) => (
-              <Link key={category.id} to={`/products/category/${category.id}`}>
-                <span key={category.id}>{category}</span>
+              <Link to={`/products/category/${category.id}`}>
+                <span index={category.id}>{category}</span>
               </Link>
             ))}
           </div>
@@ -49,16 +49,16 @@ export function CategoriesFetch() {
 
 export function SingleCategory() {
   const { id } = useParams();
-  const [singleCategory, setSingleCategory] = useState(null);
+  const [singleCategory, setSingleCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}${IN_CATEGORY}${id}`)
+      .get(`${BASE_URL}${IN_CATEGORY}/${id}`)
       .then((response) => {
         setIsLoading(false);
-        console.log(response.data);
         setSingleCategory(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(`error fetching`, error);
@@ -66,25 +66,32 @@ export function SingleCategory() {
   }, [id]);
 
   return (
-    <>
-      <div className="container">
-        <div className="singleWrapper">
-          {isLoading ? (
-            <FontAwesomeIcon icon="fa-solid fa-spinner" className="loading" />
-          ) : (
-            singleCategory && (
-              <Card
-                key={singleCategory.id}
-                title={singleCategory.title}
-                category={singleCategory.category}
-                description={singleCategory.description}
-                price={singleCategory.price}
-                image={singleCategory.image}
-              />
-            )
-          )}
-        </div>
+    <div className="container">
+      <div className="allProductsWrapper">
+        {isLoading ? (
+          <FontAwesomeIcon icon="spinner" className="loading" />
+        ) : (
+          singleCategory && (
+            <div>
+              {singleCategory.map((category) => (
+                <Card
+                  key={category.id}
+                  title={category.title}
+                  category={category.category}
+                  description={category.description}
+                  price={category.price}
+                  image={category.image}
+                />
+              ))}
+
+              <h1>testtt</h1>
+              <h1>testtt</h1>
+              <h1>testtt</h1>
+              <h1>testtt</h1>
+            </div>
+          )
+        )}
       </div>
-    </>
+    </div>
   );
 }
