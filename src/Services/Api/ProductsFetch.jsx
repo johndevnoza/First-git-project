@@ -41,18 +41,16 @@ export function ProductsFetch() {
             <FontAwesomeIcon icon="fa-solid fa-spinner" className="loading" />
           ) : (
             product.map((product) => (
-              <>
-                <Link to={`/products/${product.id}`}>
-                  <Card
-                    key={product.id}
-                    title={product.title}
-                    category={product.category}
-                    description={product.description}
-                    price={product.price}
-                    image={product.image}
-                  />
-                </Link>
-              </>
+              <Link to={`/products/${product.id}`}>
+                <Card
+                  key={product.id}
+                  title={product.title}
+                  category={product.category}
+                  description={product.description}
+                  price={product.price}
+                  image={product.image}
+                />
+              </Link>
             ))
           )}
         </div>
