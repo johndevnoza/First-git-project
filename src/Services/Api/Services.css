@@ -40,6 +40,7 @@
 .singleCard img {
   object-fit: cover;
   width: 100%;
+  max-width: 650px;
   justify-self: start;
   border-bottom: solid 2px gray;
   margin: auto;
@@ -87,4 +88,17 @@ p {
 .singleCard p {
   width: fit-content;
   grid-area: 3 / 2 / 4 / 4;
+}
+.loading {
+  font-size: 30px;
+  animation: loading infinite 2s linear;
+  place-self: center;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

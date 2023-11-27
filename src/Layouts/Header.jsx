@@ -3,7 +3,6 @@ import React from "react";
 import "./layout.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons"; // Adjust the path based on your project structure
-
 export default function Header() {
   return (
     <div className="header">
@@ -12,6 +11,10 @@ export default function Header() {
           <Link to={"/"} className="logo">
             <FontAwesomeIcon icon="cube" />
           </Link>
+          <div className="searchWrapper">
+            <input type="text" />
+            <FontAwesomeIcon icon="search" className="searchIcon" />
+          </div>
           <ul className="headerLists">
             <li>
               <Link to={"/shopping"}>Shopping</Link>
@@ -28,6 +31,7 @@ export default function Header() {
           </ul>
         </div>
       </div>
+      
     </div>
   );
 }

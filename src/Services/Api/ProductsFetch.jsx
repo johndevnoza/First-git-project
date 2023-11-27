@@ -9,6 +9,8 @@ import {
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./Services.css";
 import Card from "../../Components/Common/Card.jsx";
 
@@ -35,18 +37,24 @@ export function ProductsFetch() {
     <>
       <div className="container">
         <div className="allProductsWrapper">
-          {product.map((product) => (
-            <Link to={`/products/${product.id}`}>
-              <Card
-                key={product.id}
-                title={product.title}
-                category={product.category}
-                description={product.description}
-                price={product.price}
-                image={product.image}
-              />
-            </Link>
-          ))}
+          {isLoading ? (
+            <FontAwesomeIcon icon="fa-solid fa-spinner" className="loading" />
+          ) : (
+            product.map((product) => (
+              <>
+                <Link to={`/products/${product.id}`}>
+                  <Card
+                    key={product.id}
+                    title={product.title}
+                    category={product.category}
+                    description={product.description}
+                    price={product.price}
+                    image={product.image}
+                  />
+                </Link>
+              </>
+            ))
+          )}
         </div>
       </div>
     </>
@@ -56,11 +64,13 @@ export function ProductsFetch() {
 export function SingleProduct() {
   const { id } = useParams();
   const [single, setsingle] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get(`${BASE_URL}${SINGLE_PRODUCT}${id}`)
       .then((response) => {
+        setIsLoading(false);
         console.log(response.data);
         setsingle(response.data);
       })
@@ -73,16 +83,20 @@ export function SingleProduct() {
     <>
       <div className="container">
         <div className="singleWrapper">
-          {single && (
-            <Card
-              className="singleCard"
-              key={single.id}
-              title={single.title}
-              category={single.category}
-              description={single.description}
-              price={single.price}
-              image={single.image}
-            />
+          {isLoading ? (
+            <FontAwesomeIcon icon="fa-solid fa-spinner" className="loading" />
+          ) : (
+            single && (
+              <Card
+                className="singleCard"
+                key={single.id}
+                title={single.title}
+                category={single.category}
+                description={single.description}
+                price={single.price}
+                image={single.image}
+              />
+            )
           )}
         </div>
       </div>

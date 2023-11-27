@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background: radial-gradient( #ff9100, #ff5b5b);
+  background: radial-gradient(#ff9100, #ff5b5b);
   background-size: 280%;
   animation: headerAnim 2s infinite linear;
 }
@@ -13,6 +13,34 @@
   height: 100px;
   align-items: center;
   justify-content: space-between;
+}
+.searchWrapper {
+  border: solid 2px white;
+  width: 50%;
+  border-radius: 18px;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 2px 6px;
+  background-color: #dd333375;
+}
+.searchWrapper input {
+  all: unset;
+  width: 100%;
+  padding: 8px 16px;
+}
+.searchIcon {
+  font-size: 20px;
+  padding: 4px 8px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+.searchIcon:hover {
+  transform: rotate(-30deg);
+}
+.searchIcon:active {
+  font-size: 15px;
+  transform: rotate(-30deg);
 }
 
 .headerLists {
@@ -26,6 +54,7 @@ ul li {
   padding: 8px 16px;
   align-items: center;
   gap: 10px;
+  transition: all 0.1s ease;
 }
 ul li:hover {
   background-color: rgba(255, 200, 50, 0.747);
@@ -52,4 +81,37 @@ ul li:hover {
 }
 .footerWrapper {
   margin-top: 55px;
+}
+.categoriesWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border: solid 2px #ff9100;
+  border-radius: 16px;
+  padding: 8px 10px;
+  background-size: 280%;
+  animation: headerAnim 2s infinite linear;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 22px;
+}
+.categoriesWrapper a {
+  background-color: #ff5b5b;
+  padding: 8px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  color: white;
+}
+.categoriesList {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.categoriesWrapper a:hover {
+  background-color: #dd3333;
+}
+.categoriesWrapper span:active {
+  transform: scaleX(110%);
+}
+.categoriesWrapper a:active {
+  transform: scaleX(110%);
 }
