@@ -41,7 +41,7 @@ export function ProductsFetch() {
             <FontAwesomeIcon icon="fa-solid fa-spinner" className="loading" />
           ) : (
             product.map((product) => (
-              <Link to={`/products/${product.id}`}>
+              <Link key={product.id} to={`/products/${product.id}`}>
                 <Card
                   key={product.id}
                   title={product.title}

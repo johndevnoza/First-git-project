@@ -2,11 +2,11 @@ import {
   BASE_URL,
   ALL_CATEGORIES,
   IN_CATEGORY,
+  ALL_PRODUCTS,
 } from "../../Utils/constants.js";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../../Components/Common/Card.jsx";
 
@@ -16,34 +16,32 @@ import axios from "axios";
 import React from "react";
 
 export function CategoriesFetch() {
-  const [categories, setCategories] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${BASE_URL}${ALL_CATEGORIES}`)
       .then((response) => {
-        setCategories(response.data);
+        setAllCategories(response.data);
       })
       .catch((error) => {
-        console.error(`error fetching`, error);
+        console.error("Error fetching categories", error);
       });
   }, []);
 
   return (
-    <>
-      <div className="container">
-        <div className="categoriesWrapper">
-          <Link to={""}>All</Link>
-          <div className="categoriesList">
-            {categories.map((category) => (
-              <Link to={`/products/category/${category.id}`}>
-                <span index={category.id}>{category}</span>
-              </Link>
-            ))}
-          </div>
+    <div className="container">
+      <div className="categoriesWrapper">
+        <Link to="/">All</Link>
+        <div className="categoriesList">
+          {allCategories.map((categories) => (
+            <Link key={categories.id} to={`/products/category/${categories}`}>
+              <span key={categories.id}>{categories}</span>
+            </Link>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -72,7 +70,7 @@ export function SingleCategory() {
           <FontAwesomeIcon icon="spinner" className="loading" />
         ) : (
           singleCategory && (
-            <div>
+            <>
               {singleCategory.map((category) => (
                 <Card
                   key={category.id}
@@ -83,12 +81,7 @@ export function SingleCategory() {
                   image={category.image}
                 />
               ))}
-
-              <h1>testtt</h1>
-              <h1>testtt</h1>
-              <h1>testtt</h1>
-              <h1>testtt</h1>
-            </div>
+            </>
           )
         )}
       </div>
