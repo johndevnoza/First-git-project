@@ -2,11 +2,10 @@ import {
   BASE_URL,
   ALL_CATEGORIES,
   IN_CATEGORY,
-  ALL_PRODUCTS,
 } from "../../Utils/constants.js";
 
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../../Components/Common/Card.jsx";
 
@@ -32,12 +31,25 @@ export function CategoriesFetch() {
   return (
     <div className="container">
       <div className="categoriesWrapper">
-        <Link to="/">All</Link>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+          to="/"
+        >
+          All
+        </NavLink>
         <div className="categoriesList">
           {allCategories.map((categories) => (
-            <Link key={categories.id} to={`/products/category/${categories}`}>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+              key={categories.id}
+              to={`/products/category/${categories}`}
+            >
               <span key={categories.id}>{categories}</span>
-            </Link>
+            </NavLink>
           ))}
         </div>
       </div>

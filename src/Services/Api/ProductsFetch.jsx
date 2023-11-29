@@ -2,8 +2,6 @@ import {
   BASE_URL,
   ALL_PRODUCTS,
   SINGLE_PRODUCT,
-  ALL_CATEGORIES,
-  IN_CATEGORY,
 } from "../../Utils/constants.js";
 
 import { useState, useEffect } from "react";
