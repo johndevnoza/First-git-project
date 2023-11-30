@@ -3,13 +3,13 @@ import "./layout.css";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import { CategoriesFetch } from "../Services/Api/CategoriesFetch";
+import CategoriesPage from "../Pages/CategoriesPage";
 
 export default function Layout() {
   return (
     <>
       <Header />
-      <CategoriesFetch />
+      <CategoriesPage />
       <Outlet />
       <Footer />
     </>

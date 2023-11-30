@@ -4,17 +4,12 @@ import {
   IN_CATEGORY,
 } from "../../Utils/constants.js";
 
-import { useState, useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Card from "../../Components/Common/Card.jsx";
-
-import "./Services.css";
-
 import axios from "axios";
-import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export function CategoriesFetch() {
+
+export function useCategoriesFetch() {
   const [allCategories, setAllCategories] = useState([]);
 
   useEffect(() => {
@@ -28,38 +23,12 @@ export function CategoriesFetch() {
       });
   }, []);
 
-  return (
-    <div className="container">
-      <div className="categoriesWrapper">
-        <NavLink
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-          to="/"
-        >
-          All
-        </NavLink>
-        <div className="categoriesList">
-          {allCategories.map((categories) => (
-            <NavLink
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
-              key={categories.id}
-              to={`/products/category/${categories}`}
-            >
-              <span key={categories.id}>{categories}</span>
-            </NavLink>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  return { allCategories };
 }
 
-export function SingleCategory() {
+export function useSingleCategory() {
   const { id } = useParams();
-  const [singleCategory, setSingleCategory] = useState([]);
+  const [singleCategory, setSingleCategory] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -67,36 +36,13 @@ export function SingleCategory() {
       .get(`${BASE_URL}${IN_CATEGORY}/${id}`)
       .then((response) => {
         setIsLoading(false);
-        setSingleCategory(response.data);
         console.log(response.data);
+        setSingleCategory(response.data);
       })
       .catch((error) => {
         console.error(`error fetching`, error);
       });
   }, [id]);
 
-  return (
-    <div className="container">
-      <div className="allProductsWrapper">
-        {isLoading ? (
-          <FontAwesomeIcon icon="spinner" className="loading" />
-        ) : (
-          singleCategory && (
-            <>
-              {singleCategory.map((category) => (
-                <Card
-                  key={category.id}
-                  title={category.title}
-                  category={category.category}
-                  description={category.description}
-                  price={category.price}
-                  image={category.image}
-                />
-              ))}
-            </>
-          )
-        )}
-      </div>
-    </div>
-  );
+  return { singleCategory, isLoading };
 }

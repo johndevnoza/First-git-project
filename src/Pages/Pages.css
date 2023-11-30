@@ -1,0 +1,104 @@
+.allProductsWrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 55px;
+}
+.singleCard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 0.5fr 0.3fr;
+  grid-template-rows: 25% 5% 60% 50px;
+  border: solid 3px rgb(168, 168, 168);
+  border-radius: 16px;
+  height: 82vh;
+  overflow: hidden;
+  gap: 10px;
+  padding: 10px;
+  background: radial-gradient(rgb(30, 22, 61), rgb(24, 43, 105));
+  background-size: 280%;
+  animation: headerAnim 3s infinite linear;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  padding: 15px;
+}
+@keyframes headerAnim {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 150%;
+  }
+}
+.singleCard:hover {
+  background-color: rgb(255, 221, 170);
+}
+.singleCard img {
+  object-fit: cover;
+  width: 100%;
+  max-width: 650px;
+  justify-self: start;
+  border-bottom: solid 2px gray;
+  margin: auto;
+  border-radius: 8px;
+  transition: all ease 0.2s;
+  grid-area: 1 / 1 / 5 / 2;
+}
+
+.singleCard p,
+h4,
+h3,
+p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.singleCard h3 {
+  cursor: pointer;
+  place-self: start;
+  font-size: xx-large;
+  width: 100%;
+  padding: 4px 2px;
+  border-radius: 4px;
+  grid-area: 2 / 2 / 3 / 4;
+}
+.singleCard h3:hover {
+  background-color: rgb(255, 141, 48);
+}
+.singleCard h4 {
+  font-size: 50px;
+  grid-area: 1 / 2 / 2 / 4;
+}
+.singleCard span {
+  text-align: center;
+  padding: 4px 8px;
+  color: white;
+  cursor: pointer;
+  place-self: end;
+  font-weight: 900;
+  width: 100%;
+  border-radius: 6px;
+  grid-area: 4 / 2 / 5 / 4;
+  background-color: rgb(255, 141, 48);
+  padding: 10px 0;
+}
+.singleCard p {
+  width: fit-content;
+  grid-area: 3 / 2 / 4 / 4;
+}
+.loading {
+  font-size: 30px;
+  animation: loading infinite 2s linear;
+  place-self: center;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.singleWrapper h1 {
+  color: black;
+}

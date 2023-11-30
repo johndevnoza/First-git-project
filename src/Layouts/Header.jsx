@@ -1,9 +1,14 @@
 // Header.jsx
 import React from "react";
 import "./layout.css";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "../assets/Icons/icons"; // Adjust the path based on your project structure
+import { Link, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "../assets/Icons/icons";
+import { useSearchParams } from "react-router-dom";
+
 export default function Header() {
+  const location = useLocation();
+  
+
   return (
     <div className="header">
       <div className="container">
