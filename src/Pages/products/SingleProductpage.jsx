@@ -1,14 +1,14 @@
 // SingleProduct.jsx
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useSingleProductFetch } from "../Services/Api/ProductsFetch";
+import { useSingleProductFetch } from "../../Services/Api/ProductsFetch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Pages.css";
-import Card from "../Components/Common/Card";
+import "../Pages.css";
+import Card from "../../Components/Common/Card";
 
 function SingleProduct() {
-  const { id } = useParams();
-  const { single, isLoading } = useSingleProductFetch(id);
+  const { itemId } = useParams();
+  const { single, isLoading } = useSingleProductFetch(itemId);
 
   return (
     <>

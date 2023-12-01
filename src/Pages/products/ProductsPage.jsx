@@ -1,9 +1,9 @@
 import React from "react";
-import { useProductsFetch } from "../Services/Api/ProductsFetch";
+import { useProductsFetch } from "../../Services/Api/ProductsFetch";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Pages.css";
-import Card from "../Components/Common/Card";
+import "../Pages.css";
+import Card from "../../Components/Common/Card";
 
 function ProductsPage() {
   const { product, isLoading } = useProductsFetch();

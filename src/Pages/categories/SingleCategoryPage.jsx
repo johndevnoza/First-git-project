@@ -1,9 +1,11 @@
+// SingleCategoryPage.jsx
 import React from "react";
-import { useSingleCategory } from "../Services/Api/CategoriesFetch";
+import { useSingleCategory } from "../../Services/Api/CategoriesFetch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import "./Pages.css";
-import Card from "../Components/Common/Card";
+import { useParams } from "react-router-dom";
+import "../Pages.css";
+import Card from "../../Components/Common/Card";
 
 function SingleCategoryPage() {
   const { id } = useParams();
@@ -18,7 +20,7 @@ function SingleCategoryPage() {
           singleCategory && (
             <>
               {singleCategory.map((category) => (
-                <Link key={category.id}>
+                <Link key={category.id} to={`/products/${category.id}`}>
                   <Card
                     key={category.id}
                     title={category.title}
@@ -37,4 +39,4 @@ function SingleCategoryPage() {
   );
 }
 
-export default SingleCategoryPage();
+export default SingleCategoryPage;

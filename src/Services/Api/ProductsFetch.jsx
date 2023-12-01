@@ -1,4 +1,3 @@
-// ProductService.js
 import {
   BASE_URL,
   ALL_PRODUCTS,
@@ -29,13 +28,13 @@ export function useProductsFetch() {
 }
 
 export function useSingleProductFetch() {
-  const { id } = useParams();
+  const { itemId } = useParams();
   const [single, setSingle] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}${SINGLE_PRODUCT}${id}`)
+      .get(`${BASE_URL}${SINGLE_PRODUCT}${itemId}`)
       .then((response) => {
         setIsLoading(false);
         setSingle(response.data);
@@ -44,7 +43,7 @@ export function useSingleProductFetch() {
       .catch((error) => {
         console.error(`error fetching`, error);
       });
-  }, [id]);
+  }, [itemId]);
 
   return { single, isLoading };
 }
