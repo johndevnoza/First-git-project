@@ -1,14 +1,11 @@
 // Header.jsx
 import React from "react";
 import "./layout.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons";
-import { useSearchParams } from "react-router-dom";
+import SearchBar from "../Components/Searchbar";
 
 export default function Header() {
-  const location = useLocation();
-  
-
   return (
     <div className="header">
       <div className="container">
@@ -16,10 +13,7 @@ export default function Header() {
           <Link to={"/"} className="logo">
             <FontAwesomeIcon icon="cube" />
           </Link>
-          <div className="searchWrapper">
-            <input type="text" />
-            <FontAwesomeIcon icon="search" className="searchIcon" />
-          </div>
+          <SearchBar />
           <ul className="headerLists">
             <li>
               <Link to={"/shopping"}>Shopping</Link>

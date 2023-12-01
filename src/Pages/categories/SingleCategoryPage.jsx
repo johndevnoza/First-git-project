@@ -1,21 +1,29 @@
-// SingleCategoryPage.jsx
 import React from "react";
 import { useSingleCategory } from "../../Services/Api/CategoriesFetch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../Pages.css";
 import Card from "../../Components/Common/Card";
+import SearchResults from "../SearchResult"; // Update the path
 
 function SingleCategoryPage() {
   const { id } = useParams();
   const { singleCategory, isLoading } = useSingleCategory(id);
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("q");
 
   return (
     <div className="container">
       <div className="allProductsWrapper">
         {isLoading ? (
           <FontAwesomeIcon icon="spinner" className="loading" />
+        ) : searchQuery ? (
+          <SearchResults
+            products={singleCategory}
+            searchQuery={searchQuery}
+            isLoading={isLoading}
+          />
         ) : (
           singleCategory && (
             <>
