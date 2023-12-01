@@ -16,7 +16,7 @@
   overflow: hidden;
   gap: 10px;
   padding: 10px;
-  background: radial-gradient(rgb(30, 22, 61), rgb(24, 43, 105));
+  background: radial-gradient(rgb(47, 46, 48), rgb(92, 92, 94));
   background-size: 280%;
   animation: headerAnim 3s infinite linear;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

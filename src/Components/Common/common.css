@@ -5,12 +5,12 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 518px;
-  gap: 6px;
+  gap: 12px;
   max-height: fit-content;
-  border: solid 3px rgb(168, 168, 168);
+  /* border: solid 3px rgb(168, 168, 168); */
   border-radius: 8px;
   overflow: hidden;
-  padding: 10px;
+  padding: 18px;
   position: relative;
   background-size: 280%;
   animation: intro 0.8s forwards ease, cardsGlow 3s infinite ease;
@@ -34,13 +34,13 @@
 }
 @keyframes cardsGlow {
   0% {
-    background-color: rgb(30, 22, 61);
+    background-color: hsl(240, 1%, 22%);
   }
   50% {
-    background-color: rgb(34, 59, 126);
+    background-color: rgb(74, 74, 75);
   }
   100% {
-    background-color: rgb(30, 22, 61);
+    background-color: hsl(240, 1%, 22%);
   }
 }
 .card img {
@@ -50,7 +50,7 @@
   border-bottom: solid 2px gray;
   margin: auto;
   border-radius: 8px;
-  border: solid 3px rgb(202, 103, 10);
+  /* border: solid 3px rgb(202, 103, 10); */
   transition: all ease 0.2s;
 }
 .card:hover img {
@@ -60,8 +60,9 @@
 h4,
 h3,
 p {
-  text-overflow: ellipsis;
-  overflow: hidden;
+  line-height: 1.2; /* Adjust the value based on your design */
+  max-height: 8.4em;
+  
 }
 .card h3 {
   cursor: pointer;
@@ -75,11 +76,14 @@ p {
 }
 .card span {
   text-align: center;
-  padding: 4px 8px;
+  padding: 8px 8px;
   color: white;
   cursor: pointer;
   font-weight: 900;
   border-radius: 6px;
   width: 100%;
-  background-color: rgb(202, 103, 10);
+  background-color: rgb(248, 125, 11);
+}
+.card span:hover {
+  background-color: rgb(255, 211, 14);
 }
