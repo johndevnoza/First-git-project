@@ -18,13 +18,13 @@
 
 .headerLists {
   display: flex;
-  gap: 5px;
+  gap: 35px;
 }
 ul li {
   display: flex;
   font-size: 25px;
   border-radius: 4px;
-  padding: 8px 16px;
+  padding: 8px 0px;
   align-items: center;
   gap: 10px;
   transition: all 0.1s ease;

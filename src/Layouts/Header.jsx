@@ -3,6 +3,7 @@ import React from "react";
 import "./layout.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons";
+import DropDown from "../Components/Common/DropDown";
 import SearchBar from "../Components/Searchbar";
 
 export default function Header() {
@@ -16,16 +17,27 @@ export default function Header() {
           <SearchBar />
           <ul className="headerLists">
             <li>
-              <Link to={"/shopping"}>Shopping</Link>
-              <FontAwesomeIcon icon="cart-shopping" />
+              <DropDown lable={"Shopping"} icon={"cart-shopping"}>
+                <Link>test</Link>
+                <Link>test</Link>
+                <Link>test</Link>
+                <Link>cart</Link>
+              </DropDown>
             </li>
             <li>
-              <Link to={"/account"}>Account</Link>
-              <FontAwesomeIcon icon="user" />
+              <DropDown lable={"Account"} icon={"user"}>
+                <Link>Porfile</Link>
+                <Link>Settings</Link>
+                <Link>Balance</Link>
+              </DropDown>
             </li>
             <li>
-              <Link to={"/help"}>Help</Link>
-              <FontAwesomeIcon icon="question" />
+              <DropDown lable={"Help"} icon={"question"}>
+                <Link>test</Link>
+                <Link>test</Link>
+                <Link>test</Link>
+                <Link>cart</Link>
+              </DropDown>
             </li>
           </ul>
         </div>
