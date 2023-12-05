@@ -1,13 +1,12 @@
 .card {
   width: 100%;
   display: grid;
-  grid-template-rows: 1fr auto auto 3fr auto;
+  grid-template-rows: repeat(5 auto);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 518px;
   gap: 12px;
   max-height: fit-content;
-  /* border: solid 3px rgb(168, 168, 168); */
   border-radius: 8px;
   overflow: hidden;
   padding: 18px;
@@ -50,7 +49,6 @@
   border-bottom: solid 2px gray;
   margin: auto;
   border-radius: 8px;
-  /* border: solid 3px rgb(202, 103, 10); */
   transition: all ease 0.2s;
 }
 .card:hover img {
@@ -60,8 +58,8 @@
 h4,
 h3,
 p {
-  line-height: 1.2; /* Adjust the value based on your design */
-  max-height: 8.4em;
+  line-height: 1.2; 
+  max-height: 3.6em;
   
 }
 .card h3 {
@@ -75,8 +73,9 @@ p {
   white-space: nowrap;
 }
 .card span {
+  place-self: center;
   text-align: center;
-  padding: 8px 8px;
+  padding: 18px 0px;
   color: white;
   cursor: pointer;
   font-weight: 900;

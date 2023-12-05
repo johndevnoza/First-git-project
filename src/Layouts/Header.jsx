@@ -27,14 +27,14 @@ export default function Header() {
             <li>
               <DropDown lable={"Account"} icon={"user"}>
                 <Link>Porfile</Link>
-                <Link>Settings</Link>
                 <Link>Balance</Link>
+                <Link>Settings</Link>
               </DropDown>
             </li>
             <li>
               <DropDown lable={"Help"} icon={"question"}>
-                <Link>test</Link>
-                <Link>test</Link>
+                <Link>Report</Link>
+                <Link>History</Link>
                 <Link>test</Link>
                 <Link>cart</Link>
               </DropDown>

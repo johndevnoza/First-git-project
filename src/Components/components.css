@@ -54,6 +54,7 @@
   width: 100%;
   border-radius: 4px;
   width: 100%;
+  font-size: fit-content;
   padding: 8px 16px;
   animation: hoverList 0.6s ease forwards;
 }
@@ -97,15 +98,13 @@
   user-select: none;
   animation: showList 0.4s ease-in-out forwards;
 }
-.visible a {
-  width: 100%;
-  
-}
+
 @keyframes showList {
   0% {
     width: 0px;
   }
   100% {
+    min-width: max-content;
     width: 100%;
   }
 }
