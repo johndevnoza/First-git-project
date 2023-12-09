@@ -23,59 +23,61 @@ export default function Card({
   return (
     <div className={className}>
       <img src={image} alt="title" />
-      <h3>{category}</h3>
-      <h4>{title}</h4>
-      <p>{description}</p>
-      <div className="price-Cart">
-        <span>{price}$</span>
-        <FontAwesomeIcon className="favoritesIcon" icon="heart" />
-        {quantity === 0 ? (
-          <FontAwesomeIcon
-            className="addButton"
-            icon="cart-shopping"
-            onClick={(event) => {
-              event.stopPropagation();
-              event.preventDefault(); // Prevent the link from being executed
-              increaseCartQuantity(id);
-            }}
-          />
-        ) : (
-          <>
-            <div className="changeNumber">
-              <div
-                className="numberControl"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  event.preventDefault(); // Prevent the link from being executed
-                  decreaseCartQuantity(id);
-                }}
-              >
-                -
+      <div className="textWrapper">
+        <h3>{category}</h3>
+        <h4>{title}</h4>
+        <p>{description}</p>
+        <div className="price-Cart">
+          <span>{price}$</span>
+          <FontAwesomeIcon className="favoritesIcon" icon="heart" />
+          {quantity === 0 ? (
+            <FontAwesomeIcon
+              className="addButton"
+              icon="cart-shopping"
+              onClick={(event) => {
+                event.stopPropagation();
+                event.preventDefault();
+                increaseCartQuantity(id);
+              }}
+            />
+          ) : (
+            <>
+              <div className="changeNumber">
+                <div
+                  className="numberControl"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    decreaseCartQuantity(id);
+                  }}
+                >
+                  -
+                </div>
+                <div>{quantity}</div>
+                <div
+                  className="numberControl"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    increaseCartQuantity(id);
+                  }}
+                >
+                  +
+                </div>
               </div>
-              <div>{quantity}</div>
-              <div
-                className="numberControl"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  event.preventDefault(); // Prevent the link from being executed
-                  increaseCartQuantity(id);
-                }}
-              >
-                +
-              </div>
-            </div>
               <div
                 className="remove"
                 onClick={(event) => {
                   event.stopPropagation();
-                  event.preventDefault(); // Prevent the link from being executed
+                  event.preventDefault();
                   removeFromCart(id);
                 }}
               >
                 X
               </div>
-          </>
-        )}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,20 +1,24 @@
 .card {
-  width: 100%;
-  display: grid;
-  grid-template-rows: repeat(5 auto);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 308px;
   height: 518px;
-  gap: 12px;
-  max-height: fit-content;
+  gap: 62px;
   border-radius: 8px;
   overflow: hidden;
   padding: 18px;
-  position: relative;
-  background-size: 280%;
-  animation: intro 0.8s forwards ease, cardsGlow 3s infinite ease;
+  background-color: rgb(47, 46, 48);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
+  justify-content: space-between;
+}
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
 }
 @keyframes intro {
   0% {
@@ -31,21 +35,12 @@
     transform: translateY(0%);
   }
 }
-@keyframes cardsGlow {
-  0% {
-    background-color: hsl(240, 1%, 22%);
-  }
-  50% {
-    background-color: rgb(74, 74, 75);
-  }
-  100% {
-    background-color: hsl(240, 1%, 22%);
-  }
-}
 .card img {
   width: 212px;
   height: 212px;
   object-fit: cover;
+  justify-self: center;
+  align-self: center;
   border-bottom: solid 2px gray;
   margin: auto;
   border-radius: 8px;
@@ -129,6 +124,7 @@ p {
   font-weight: 900;
   place-self: center;
   text-align: center;
+  align-items: center;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -142,7 +138,6 @@ p {
   border-radius: 2px;
   border: solid 2px white;
   padding: 0px 4px;
-  display: grid;
 }
 .remove {
   background-color: rgb(248, 11, 11);
@@ -157,4 +152,7 @@ p {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   justify-content: center;
+}
+.remove:hover {
+  background-color: rgb(255, 110, 27);
 }

@@ -1,38 +1,24 @@
 .allProductsWrapper {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: 16px;
+  flex-wrap: wrap;
   margin-top: 55px;
+  user-select: none;
 }
 .singleCard {
   width: 100%;
-  display: grid;
-  grid-template-columns: auto 0.5fr 0.3fr;
-  grid-template-rows: 25% 5% 60% 50px;
-  border: solid 3px rgb(168, 168, 168);
+  display: flex;
   border-radius: 16px;
-  height: 82vh;
+  height: 728px;
   overflow: hidden;
-  gap: 10px;
+  gap: 20px;
   padding: 10px;
-  background: radial-gradient(rgb(47, 46, 48), rgb(92, 92, 94));
-  background-size: 280%;
-  animation: headerAnim 3s infinite linear;
+  background-color: rgb(47, 46, 48);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   padding: 15px;
-}
-@keyframes headerAnim {
-  0% {
-    background-position-x: 0%;
-  }
-  100% {
-    background-position-x: 150%;
-  }
-}
-.singleCard:hover {
-  background-color: rgb(255, 221, 170);
+  user-select: none;
 }
 .singleCard img {
   object-fit: cover;
@@ -43,7 +29,6 @@
   margin: auto;
   border-radius: 8px;
   transition: all ease 0.2s;
-  grid-area: 1 / 1 / 5 / 2;
 }
 
 .singleCard p,
@@ -52,6 +37,7 @@ h3,
 p {
   text-overflow: ellipsis;
   overflow: hidden;
+  max-height: 100%;
 }
 .singleCard h3 {
   cursor: pointer;
@@ -60,31 +46,30 @@ p {
   width: 100%;
   padding: 4px 2px;
   border-radius: 4px;
-  grid-area: 2 / 2 / 3 / 4;
 }
 .singleCard h3:hover {
   background-color: rgb(255, 141, 48);
 }
 .singleCard h4 {
   font-size: 50px;
-  grid-area: 1 / 2 / 2 / 4;
 }
 .singleCard span {
+  place-self: center;
   text-align: center;
-  padding: 4px 8px;
+  padding: 18px 8px;
   color: white;
   cursor: pointer;
-  place-self: end;
   font-weight: 900;
-  width: 100%;
-  border-radius: 6px;
-  grid-area: 4 / 2 / 5 / 4;
-  background-color: rgb(255, 141, 48);
-  padding: 10px 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  width: 50%;
+  background-color: rgb(248, 125, 11);
+}
+.singleCard span:hover {
+  background-color: rgb(255, 211, 14);
 }
 .singleCard p {
   width: fit-content;
-  grid-area: 3 / 2 / 4 / 4;
 }
 .loading {
   font-size: 30px;

@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons";
 import DropDown from "../Components/Common/DropDown";
 import SearchBar from "../Components/Searchbar";
+import useShoppingCart from "../Services/ShoppingCartContext";
 
 export default function Header() {
+  const { cartQuantity } = useShoppingCart();
   return (
     <div className="header">
       <div className="container">
@@ -18,28 +20,29 @@ export default function Header() {
           <ul className="headerLists">
             <li>
               <div className="cartIcon">
-                  <div className="cartNumber">2</div>
+                {cartQuantity ? (
+                  <div className="cartNumber">{cartQuantity}</div>
+                ) : null}
                 <DropDown lable={"Shopping"} icon={"cart-shopping"}>
-                  <Link>test</Link>
-                  <Link>test</Link>
-                  <Link>test</Link>
-                  <Link>cart</Link>
+                  <Link>Cart</Link>
+                  <Link>Favorites</Link>
+                  <Link>Gifts</Link>
+                  <Link>Special code</Link>
                 </DropDown>
               </div>
             </li>
             <li>
               <DropDown lable={"Account"} icon={"user"}>
-                <Link>Porfile</Link>
+                <Link>Profile</Link>
                 <Link>Balance</Link>
                 <Link>Settings</Link>
+                <Link>History</Link>
               </DropDown>
             </li>
             <li>
               <DropDown lable={"Help"} icon={"question"}>
                 <Link>Report</Link>
-                <Link>History</Link>
-                <Link>test</Link>
-                <Link>cart</Link>
+                <Link>Contact us</Link>
               </DropDown>
             </li>
           </ul>
