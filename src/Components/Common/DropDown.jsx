@@ -13,12 +13,10 @@ export default function DropDown({ lable, children, icon }) {
   };
 
   return (
-    <div
-      className="dropDown"
-      onClick={handleMouseOver}
-    >
+    <div className="dropDown" onClick={handleMouseOver}>
       <span>{lable}</span>
-      <FontAwesomeIcon icon={icon} />
+        <FontAwesomeIcon icon={icon}/>
+         
       <div
         className={`dropDownContent ${isDropDownVisible ? "visible" : ""}`}
         onMouseLeave={handleMouseOut}

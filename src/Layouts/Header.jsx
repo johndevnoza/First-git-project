@@ -17,12 +17,15 @@ export default function Header() {
           <SearchBar />
           <ul className="headerLists">
             <li>
-              <DropDown lable={"Shopping"} icon={"cart-shopping"}>
-                <Link>test</Link>
-                <Link>test</Link>
-                <Link>test</Link>
-                <Link>cart</Link>
-              </DropDown>
+              <div className="cartIcon">
+                  <div className="cartNumber">2</div>
+                <DropDown lable={"Shopping"} icon={"cart-shopping"}>
+                  <Link>test</Link>
+                  <Link>test</Link>
+                  <Link>test</Link>
+                  <Link>cart</Link>
+                </DropDown>
+              </div>
             </li>
             <li>
               <DropDown lable={"Account"} icon={"user"}>

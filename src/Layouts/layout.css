@@ -15,7 +15,6 @@
   justify-content: space-between;
 }
 
-
 .headerLists {
   display: flex;
   gap: 35px;
@@ -106,4 +105,22 @@ ul li:hover {
 }
 .categoriesWrapper a:active {
   transform: scaleX(110%);
+}
+
+.cartIcon {
+  position: relative;
+}
+.cartNumber {
+  position: absolute;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+  right: -10px;
+  top: -18px;
 }

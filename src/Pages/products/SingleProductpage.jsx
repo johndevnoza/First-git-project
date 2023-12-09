@@ -18,15 +18,7 @@ function SingleProduct() {
             <FontAwesomeIcon icon="fa-solid fa-spinner" className="loading" />
           ) : (
             single && (
-              <Card
-                className="singleCard"
-                key={single.id}
-                title={single.title}
-                category={single.category}
-                description={single.description}
-                price={single.price}
-                image={single.image}
-              />
+              <Card className="singleCard" key={single.id} {...single} />
             )
           )}
         </div>

@@ -58,9 +58,8 @@
 h4,
 h3,
 p {
-  line-height: 1.2; 
+  line-height: 1.2;
   max-height: 3.6em;
-  
 }
 .card h3 {
   cursor: pointer;
@@ -79,10 +78,28 @@ p {
   color: white;
   cursor: pointer;
   font-weight: 900;
-  border-radius: 6px;
-  width: 100%;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  width: 70%;
   background-color: rgb(248, 125, 11);
 }
 .card span:hover {
   background-color: rgb(255, 211, 14);
+}
+.price-Cart {
+  width: 100%;
+  display: flex;
+  gap: 2px;
+}
+.addButton {
+  background-color: rgb(248, 125, 11);
+  cursor: pointer;
+  color: white;
+  padding: 18px 0px;
+  font-weight: 900;
+  place-self: center;
+  text-align: center;
+  width: 30%;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
