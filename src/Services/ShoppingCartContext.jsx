@@ -1,82 +1,40 @@
-import { useContext, createContext, useState, useEffect } from "react";
+import { create } from "zustand";
 
-const ShoppingCartContext = createContext({});
-
-export default function useShoppingCart() {
-  return useContext(ShoppingCartContext);
-}
-
-export function ShoppingCartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    setCartItems(storedCart);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  const cartQuantity = cartItems.reduce(
-    (quantity, item) => item.quantity + quantity,
-    0
-  );
-
-  function getItemQuantity(id) {
-    return cartItems.find((item) => item.id === id)?.quantity || 0;
-  }
-
-  function increaseCartQuantity(id) {
-    setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === id) == null) {
-        return [...currItems, { id, quantity: 1 }];
+const useShoppingCart = create((set) => ({
+  cartItems: [],
+  setCartItems: (items) => set({ cartItems: items }),
+  increaseCartQuantity: (id) =>
+    set((state) => {
+      const existingItem = state.cartItems.find((item) => item.id === id);
+      if (!existingItem) {
+        return { cartItems: [...state.cartItems, { id, quantity: 1 }] };
       } else {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            return item;
-          }
-        });
+        return {
+          cartItems: state.cartItems.map((item) =>
+            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+          ),
+        };
       }
-    });
-  }
-
-  function decreaseCartQuantity(id) {
-    setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === id)?.quantity === 1) {
-        return currItems.filter((item) => item.id !== id);
+    }),
+  decreaseCartQuantity: (id) =>
+    set((state) => {
+      const existingItem = state.cartItems.find((item) => item.id === id);
+      if (existingItem && existingItem.quantity === 1) {
+        return {
+          cartItems: state.cartItems.filter((item) => item.id !== id),
+        };
       } else {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
-        });
+        return {
+          cartItems: state.cartItems.map((item) =>
+            item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+          ),
+        };
       }
-    });
-  }
+    }),
+  removeFromCart: (id) =>
+    set((state) => ({
+      cartItems: state.cartItems.filter((item) => item.id !== id),
+    })),
+}));
 
-  function removeFromCart(id) {
-    setCartItems((currItems) => {
-      return currItems.filter((item) => item.id !== id);
-    });
-  }
-
-  return (
-    <ShoppingCartContext.Provider
-      value={{
-        getItemQuantity,
-        increaseCartQuantity,
-        decreaseCartQuantity,
-        removeFromCart,
-        cartItems,
-        cartQuantity,
-      }}
-    >
-      {children}
-    </ShoppingCartContext.Provider>
-  );
-}
+export  { useShoppingCart };

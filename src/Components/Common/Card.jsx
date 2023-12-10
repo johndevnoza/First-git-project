@@ -1,8 +1,7 @@
 import React from "react";
 import "./common.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useShoppingCart from "../../Services/ShoppingCartContext";
-
+import { useShoppingCart } from "../../Services/ShoppingCartContext";
 export default function Card({
   title,
   price,
@@ -18,8 +17,7 @@ export default function Card({
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCart();
-
-  const quantity = getItemQuantity(id);
+  const { quantity } = getItemQuantity(id);
 
   return (
     <div className={className}>

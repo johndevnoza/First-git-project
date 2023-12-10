@@ -1,5 +1,5 @@
 import React from "react";
-import useShoppingCart from "../Services/ShoppingCartContext";
+import {useShoppingCart} from "../Services/ShoppingCartContext";
 import CartItem from "../Components/CartItem";
 
 export default function CartsPage() {

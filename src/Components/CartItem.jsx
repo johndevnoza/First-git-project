@@ -1,5 +1,5 @@
 import React from "react";
-import useShoppingCart from "../Services/ShoppingCartContext";
+import {useShoppingCart} from "../Services/ShoppingCartContext";
 import { useProductsFetch } from "../Services/Api/ProductsFetch";
 import "./components.css";
 

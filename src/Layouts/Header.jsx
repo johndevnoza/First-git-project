@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons";
 import DropDown from "../Components/Common/DropDown";
 import SearchBar from "../Components/Searchbar";
-import useShoppingCart from "../Services/ShoppingCartContext";
+import { useShoppingCart } from "../Services/ShoppingCartContext";
+
+
 
 export default function Header() {
-  const { cartQuantity } = useShoppingCart();
+  const  {cartQuantity}  = useShoppingCart();
+
   return (
     <div className="header">
       <div className="container">

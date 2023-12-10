@@ -6,13 +6,11 @@ import Shopping from "./Pages/Shopping";
 import ProductsPage from "./Pages/products/ProductsPage";
 import SingleProduct from "./Pages/products/SingleProductpage";
 import SingleCategoryPage from "./Pages/categories/SingleCategoryPage";
-import { ShoppingCartProvider } from "./Services/ShoppingCartContext";
 import NotFound from "./Pages/NotFound";
 import CartsPage from "./Pages/CartsPage";
 
 function App() {
   return (
-    <ShoppingCartProvider >
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<ProductsPage />} />
@@ -27,7 +25,6 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </ShoppingCartProvider>
   );
 }
 

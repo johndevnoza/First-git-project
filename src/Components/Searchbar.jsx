@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons";
-import { ShoppingCartProvider } from "../Services/ShoppingCartContext";
+
 
 import "./components.css";
 
@@ -27,7 +27,6 @@ function SearchBar() {
   };
 
   return (
-    <ShoppingCartProvider>
       <div className="searchWrapper">
         <input
           type="text"
@@ -41,7 +40,6 @@ function SearchBar() {
           onClick={handleSearch}
         />
       </div>
-    </ShoppingCartProvider>
   );
 }
 
