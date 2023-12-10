@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons";
+import { ShoppingCartProvider } from "../Services/ShoppingCartContext";
+
 import "./components.css";
 
 function SearchBar() {
@@ -25,19 +27,21 @@ function SearchBar() {
   };
 
   return (
-    <div className="searchWrapper">
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onKeyDown={handleKeyPress}
-      />
-      <FontAwesomeIcon
-        icon="search"
-        className="searchIcon"
-        onClick={handleSearch}
-      />
-    </div>
+    <ShoppingCartProvider>
+      <div className="searchWrapper">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={handleKeyPress}
+        />
+        <FontAwesomeIcon
+          icon="search"
+          className="searchIcon"
+          onClick={handleSearch}
+        />
+      </div>
+    </ShoppingCartProvider>
   );
 }
 

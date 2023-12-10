@@ -29,7 +29,7 @@ function SingleCategoryPage() {
             <>
               {singleCategory.map((category) => (
                 <Link key={category.id} to={`/products/${category.id}`}>
-                  <Card
+                  <Card 
                     key={category.id}
                     title={category.title}
                     category={category.category}

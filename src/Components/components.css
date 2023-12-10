@@ -108,3 +108,10 @@
     width: 100%;
   }
 }
+
+/* test */
+.cartImage {
+  width: 125px;
+  height: 75px;
+  object-fit: cover;
+}

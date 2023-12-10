@@ -24,7 +24,7 @@ export default function Header() {
                   <div className="cartNumber">{cartQuantity}</div>
                 ) : null}
                 <DropDown lable={"Shopping"} icon={"cart-shopping"}>
-                  <Link>Cart</Link>
+                  <Link to={"/cart"}>Cart</Link>
                   <Link>Favorites</Link>
                   <Link>Gifts</Link>
                   <Link>Special code</Link>

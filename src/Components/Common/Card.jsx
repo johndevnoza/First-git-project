@@ -20,6 +20,7 @@ export default function Card({
   } = useShoppingCart();
 
   const quantity = getItemQuantity(id);
+
   return (
     <div className={className}>
       <img src={image} alt="title" />
