@@ -12,12 +12,13 @@ export default function Card({
   className = "card",
 }) {
   const {
-    getItemQuantity,
-    increaseCartQuantity,
-    decreaseCartQuantity,
+    increaseQuantity,
+    decreaseQuantity,
     removeFromCart,
-  } = useShoppingCart();
-  const { quantity } = getItemQuantity(id);
+    getItemquantity,
+  } = useShoppingCart(id);
+
+  const quantity = getItemquantity(id);
 
   return (
     <div className={className}>
@@ -36,7 +37,7 @@ export default function Card({
               onClick={(event) => {
                 event.stopPropagation();
                 event.preventDefault();
-                increaseCartQuantity(id);
+                increaseQuantity(id);
               }}
             />
           ) : (
@@ -47,7 +48,7 @@ export default function Card({
                   onClick={(event) => {
                     event.stopPropagation();
                     event.preventDefault();
-                    decreaseCartQuantity(id);
+                    decreaseQuantity(id);
                   }}
                 >
                   -
@@ -58,7 +59,7 @@ export default function Card({
                   onClick={(event) => {
                     event.stopPropagation();
                     event.preventDefault();
-                    increaseCartQuantity(id);
+                    increaseQuantity(id);
                   }}
                 >
                   +

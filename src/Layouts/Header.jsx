@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "../assets/Icons/icons";
 import DropDown from "../Components/Common/DropDown";
 import SearchBar from "../Components/Searchbar";
+import CategoriesPage from "../Pages/categories/CategoriesPage";
 import { useShoppingCart } from "../Services/ShoppingCartContext";
 
-
-
 export default function Header() {
-  const  {cartQuantity}  = useShoppingCart();
+  const { getItemquantity } = useShoppingCart();
 
   return (
     <div className="header">
@@ -23,8 +22,8 @@ export default function Header() {
           <ul className="headerLists">
             <li>
               <div className="cartIcon">
-                {cartQuantity ? (
-                  <div className="cartNumber">{cartQuantity}</div>
+                {getItemquantity ? (
+                  <div className="cartNumber">{getItemquantity}</div>
                 ) : null}
                 <DropDown lable={"Shopping"} icon={"cart-shopping"}>
                   <Link to={"/cart"}>Cart</Link>
@@ -50,6 +49,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
+        <CategoriesPage />
       </div>
     </div>
   );

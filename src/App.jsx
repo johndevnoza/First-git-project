@@ -7,10 +7,11 @@ import ProductsPage from "./Pages/products/ProductsPage";
 import SingleProduct from "./Pages/products/SingleProductpage";
 import SingleCategoryPage from "./Pages/categories/SingleCategoryPage";
 import NotFound from "./Pages/NotFound";
-import CartsPage from "./Pages/CartsPage";
+import { ShoppingCartProvider } from "./Services/ShoppingCartContext";
 
 function App() {
   return (
+    <ShoppingCartProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<ProductsPage />} />
@@ -20,11 +21,12 @@ function App() {
             element={<SingleCategoryPage />}
           />
           <Route path="/shopping" element={<Shopping />} />
-          <Route path="/cart" element={<CartsPage />} />
+          {/* <Route path="/cart" element={<CartsPage />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+    </ShoppingCartProvider>
   );
 }
 

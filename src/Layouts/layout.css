@@ -4,10 +4,13 @@
   background: radial-gradient(#ff9100, #ff5b5b);
   background-size: 280%;
   animation: headerAnim 2s infinite linear;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
 }
 .headerWrapper {
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   color: whitesmoke;
   display: flex;
   height: 100px;
@@ -57,9 +60,10 @@ ul li:hover {
 }
 .categoriesWrapper {
   display: flex;
+  background-color: #dd333375;
   width: 100%;
   justify-content: space-between;
-  border: solid 2px #ff9100;
+  border: solid 2px #ffffff;
   border-radius: 16px;
   padding: 8px 10px;
   background-size: 280%;
@@ -79,7 +83,7 @@ ul li:hover {
 }
 
 .categoriesWrapper a {
-  background: #ff5b5b;
+  background: #ffae17;
   padding: 8px 12px;
   border-radius: 9px;
   cursor: pointer;
