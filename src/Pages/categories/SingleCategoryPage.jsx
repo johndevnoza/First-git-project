@@ -5,7 +5,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../Pages.css";
 import Card from "../../Components/Common/Card";
-import SearchResults from "../SearchResult"; // Update the path
+import SearchResults from "../SearchResult";
 
 function SingleCategoryPage() {
   const { id } = useParams();
@@ -29,7 +29,7 @@ function SingleCategoryPage() {
             <>
               {singleCategory.map((category) => (
                 <Link key={category.id} to={`/products/${category.id}`}>
-                  <Card 
+                  <Card
                     key={category.id}
                     title={category.title}
                     category={category.category}

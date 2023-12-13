@@ -115,3 +115,8 @@
   height: 75px;
   object-fit: cover;
 }
+
+.cartWrapper {
+  display: flex;
+  gap: 20px;
+}

@@ -1,22 +1,24 @@
 import React from "react";
 import { useShoppingCart } from "../Services/ShoppingCartContext";
+import { useProductsFetch } from "../Services/Api/ProductsFetch";
 import "./components.css";
 
-export default function CartItem(id, title, price, image) {
-  const { removeFromCart, cartitems, cartQuantity } = useShoppingCart();
+export default function CartItem({ id, quantity, image, title, price }) {
+  const { removeFromCart } = useShoppingCart();
+  const { products } = useProductsFetch();
 
-  // const item = cartitems.find((i) => i.id === id);
-  // if (item == null) return null;
+  const item = products.find((i) => i.id === id);
+  if (item == null) return "test";
 
   return (
     <div className="container">
-      <div>{cartitems.title}</div>
-      <div>{cartQuantity}</div>
-      <span
-        onClick={() => {
-          removeFromCart;
-        }}
-      />
+      <div className="cartWrapper" key={id}>
+        <img src={image} />
+        <span>{title}</span>
+        <span>{price}</span>
+        <span>{quantity}</span>
+        <span onClick={() => removeFromCart(id)}>Remove</span>
+      </div>
     </div>
   );
 }

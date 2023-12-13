@@ -3,16 +3,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useSingleProductFetch } from "../../Services/Api/ProductsFetch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../Pages.css";
 import Card from "../../Components/Common/Card";
-import { useShoppingCart } from "../../Services/ShoppingCartContext";
+import "../Pages.css";
 
 function SingleProduct() {
   const { itemId } = useParams();
   const { single, isLoading } = useSingleProductFetch(itemId);
-  const { getItemquantity } = useShoppingCart(id);
-
-  const quantity = getItemquantity(id);
 
   return (
     <>

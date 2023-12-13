@@ -5,7 +5,7 @@ import {
 } from "../../Utils/constants.js";
 
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 import { useParams } from "react-router-dom";
 
 export function useProductsFetch() {
