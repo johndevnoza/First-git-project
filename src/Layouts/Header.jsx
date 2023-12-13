@@ -9,7 +9,7 @@ import CategoriesPage from "../Pages/categories/CategoriesPage";
 import { useShoppingCart } from "../Services/ShoppingCartContext";
 
 export default function Header() {
-  const { getItemquantity } = useShoppingCart();
+  const { cartQuantity } = useShoppingCart();
 
   return (
     <div className="header">
@@ -22,8 +22,8 @@ export default function Header() {
           <ul className="headerLists">
             <li>
               <div className="cartIcon">
-                {getItemquantity ? (
-                  <div className="cartNumber">{getItemquantity}</div>
+                {cartQuantity ? (
+                  <div className="cartNumber">{cartQuantity}</div>
                 ) : null}
                 <DropDown lable={"Shopping"} icon={"cart-shopping"}>
                   <Link to={"/cart"}>Cart</Link>
