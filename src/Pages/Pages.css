@@ -19,6 +19,7 @@
   color: white;
   padding: 15px;
   user-select: none;
+  margin-top: 25px;
 }
 .singleCard img {
   object-fit: cover;
@@ -86,9 +87,4 @@ p {
 }
 .singleWrapper h1 {
   color: black;
-}
-.test {
-  background-color: black;
-  color: wheat;
-  padding: 30px;
 }

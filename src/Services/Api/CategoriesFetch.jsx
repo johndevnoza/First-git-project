@@ -19,7 +19,6 @@ export function useSingleCategory() {
       .get(`${BASE_URL}${IN_CATEGORY}/${id}`)
       .then((response) => {
         setIsLoading(false);
-        console.log(response.data);
         setSingleCategory(response.data);
       })
       .catch((error) => {
@@ -39,9 +38,8 @@ export const useCategories = create((set) => ({
     axios
       .get(`${BASE_URL}${ALL_CATEGORIES}`)
       .then((response) => {
-        console.log(response.data);
         set(() => ({
-          categories: response.data,
+          allCategories: response.data,
           loading: false,
         }));
       })

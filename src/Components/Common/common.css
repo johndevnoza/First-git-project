@@ -12,6 +12,7 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   justify-content: space-between;
+  animation: intro 1s forwards ease;
 }
 .textWrapper {
   display: flex;
@@ -24,15 +25,16 @@
   0% {
     width: 0px;
     height: 0px;
-    transform: translateY(-10%);
+    transform: translateX(-10%);
   }
   45% {
     height: 518px;
-    width: 100%;
+    width: 308px;
   }
   100% {
     transform: scaleY(100%);
-    transform: translateY(0%);
+    transform: translateX(0%);
+    width: 308px;
   }
 }
 .card img {
@@ -109,6 +111,34 @@ p {
   text-align: center;
   width: min-content;
   font-size: 18px;
+  animation: heartIt ease 6s infinite;
+  animation-delay: 1s;
+}
+@keyframes heartIt {
+  0% {
+    transform: translateY(0px);
+  }
+  9% {
+    transform: translateY(2px);
+  }
+  12% {
+    transform: translateY(-6px);
+  }
+  17% {
+    transform: translateY(2px);
+  }
+  18% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.favoritesIcon:nth-child(1) {
+  animation-delay: 1.3s;
+}
+.favoritesIcon:nth-child(2) {
+  animation-delay: 1.4s;
 }
 .favoritesIcon:hover {
   background-color: rgb(255, 71, 25);
