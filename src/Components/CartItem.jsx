@@ -1,14 +1,14 @@
 import React from "react";
 import { useShoppingCart } from "../Services/ShoppingCartContext";
-import { useProductsFetch } from "../Services/Api/ProductsFetch";
+import { useProductsStore } from "../Services/Api/ProductsFetch";
 import "./components.css";
 
 export default function CartItem({ id, quantity, image, title, price }) {
   const { removeFromCart } = useShoppingCart();
-  const { products } = useProductsFetch();
+  const { allProducts } = useProductsStore();
 
-  // const item = products.find((i) => i.id === id);
-  // if (item == null) return "test";
+  const item = allProducts.find((i) => i.id === id);
+  if (item == null) return "test";
 
   return (
     <div className="container">

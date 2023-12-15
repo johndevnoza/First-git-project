@@ -12,8 +12,7 @@ function ProductsPage() {
   const { allProductsFetch, allProducts, loading } = useProductsStore();
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("q");
-  
-  
+
   useEffect(() => {
     allProductsFetch();
   }, []);

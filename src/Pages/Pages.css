@@ -87,3 +87,8 @@ p {
 .singleWrapper h1 {
   color: black;
 }
+.test {
+  background-color: black;
+  color: wheat;
+  padding: 30px;
+}

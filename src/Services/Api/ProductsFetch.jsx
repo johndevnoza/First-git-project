@@ -9,25 +9,6 @@ import { create } from "zustand";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export function useProductsFetch() {
-  const [product, setProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}${ALL_PRODUCTS}`)
-      .then((response) => {
-        setProduct(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error(`error fetching`, error);
-      });
-  }, []);
-
-  return { product, isLoading };
-}
-
 export function useSingleProductFetch() {
   const { itemId } = useParams();
   const [single, setSingle] = useState(null);
@@ -51,7 +32,6 @@ export function useSingleProductFetch() {
 
 export const useProductsStore = create((set) => ({
   allProducts: [],
-  singleProduct: null,
   loading: false,
   hasErrors: false,
   allProductsFetch: () => {
@@ -61,22 +41,6 @@ export const useProductsStore = create((set) => ({
       .then((response) => {
         set(() => ({
           allProducts: response.data,
-          loading: false,
-        }));
-      })
-      .catch(() => {
-        set(() => ({ hasErrors: true, loading: false }));
-      });
-  },
-  singleProductsFetch: () => {
-    const { itemId } = useParams();
-    set(() => ({ loading: true }));
-    axios
-      .get(`${BASE_URL}${SINGLE_PRODUCT}${itemId}`)
-      .then((response) => {
-        console.log(response.data);
-        set(() => ({
-          singleProduct: response.data,
           loading: false,
         }));
       })
