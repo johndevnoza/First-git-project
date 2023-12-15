@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Card from "../Components/Common/Card";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Card from "../Components/Common/Card";
 
 const SearchResults = ({ products, searchQuery, isLoading }) => {
   const filteredProducts = searchQuery

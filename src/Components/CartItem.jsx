@@ -7,8 +7,8 @@ export default function CartItem({ id, quantity, image, title, price }) {
   const { removeFromCart } = useShoppingCart();
   const { products } = useProductsFetch();
 
-  const item = products.find((i) => i.id === id);
-  if (item == null) return "test";
+  // const item = products.find((i) => i.id === id);
+  // if (item == null) return "test";
 
   return (
     <div className="container">

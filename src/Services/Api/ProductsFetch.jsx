@@ -5,7 +5,8 @@ import {
 } from "../../Utils/constants.js";
 
 import axios from "axios";
-import { useState, useEffect, useContext, createContext } from "react";
+import { create } from "zustand";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export function useProductsFetch() {
@@ -47,3 +48,40 @@ export function useSingleProductFetch() {
 
   return { single, isLoading };
 }
+
+export const useProductsStore = create((set) => ({
+  allProducts: [],
+  singleProduct: null,
+  loading: false,
+  hasErrors: false,
+  allProductsFetch: () => {
+    set(() => ({ loading: true }));
+    axios
+      .get(`${BASE_URL}${ALL_PRODUCTS}`)
+      .then((response) => {
+        set(() => ({
+          allProducts: response.data,
+          loading: false,
+        }));
+      })
+      .catch(() => {
+        set(() => ({ hasErrors: true, loading: false }));
+      });
+  },
+  singleProductsFetch: () => {
+    const { itemId } = useParams();
+    set(() => ({ loading: true }));
+    axios
+      .get(`${BASE_URL}${SINGLE_PRODUCT}${itemId}`)
+      .then((response) => {
+        console.log(response.data);
+        set(() => ({
+          singleProduct: response.data,
+          loading: false,
+        }));
+      })
+      .catch(() => {
+        set(() => ({ hasErrors: true, loading: false }));
+      });
+  },
+}));
