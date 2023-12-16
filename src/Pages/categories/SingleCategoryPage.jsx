@@ -8,8 +8,7 @@ import Card from "../../Components/Common/Card";
 import SearchResults from "../SearchResult";
 
 function SingleCategoryPage() {
-  const { id } = useParams();
-  const { singleCategory, isLoading } = useSingleCategory(id);
+  const { singleCategory, isLoading } = useSingleCategory();
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("q");
 
