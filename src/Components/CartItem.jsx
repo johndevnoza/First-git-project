@@ -15,7 +15,10 @@ export default function CartItem({ id, quantity }) {
     <div className="container">
       <div className="cartItem">
         <img src={item.image} />
-        <span className="cItem-title">{item.title}</span>
+        <div className="titlePriceWrpr">
+          <span className="cItem-title">{item.title}</span>
+          <span>{item.price}$</span>
+        </div>
         <span>{item.price}$</span>
         <div className="quantityWrapper">
           <span
@@ -28,7 +31,7 @@ export default function CartItem({ id, quantity }) {
           >
             +
           </span>
-          <span>{quantity}</span>
+          <span>x{quantity}</span>
           <span
             className="numberControl"
             onClick={(event) => {
@@ -40,6 +43,7 @@ export default function CartItem({ id, quantity }) {
             -
           </span>
         </div>
+        <span className="removeC">{item.price * quantity}$</span>
         <span
           className="removeC"
           onClick={(event) => {

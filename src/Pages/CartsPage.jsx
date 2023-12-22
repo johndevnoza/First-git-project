@@ -2,11 +2,11 @@ import React from "react";
 import { useShoppingCart } from "../Services/ShoppingCartContext";
 import { useProductsStore } from "../Services/Api/ProductsFetch";
 import { Link, useSearchParams } from "react-router-dom";
+import "./Pages.css";
 import SearchResults from "./SearchResult";
-
 import CartItem from "../Components/CartItem";
 
-export default function CartsPage() {
+export default function CartsPage(id) {
   const { cartItems, cartQuantity } = useShoppingCart();
   const { loading, allProducts } = useProductsStore();
   const [searchParams] = useSearchParams();
@@ -36,7 +36,16 @@ export default function CartsPage() {
             )}
           </>
         )}
-        <div>Number of items: {cartQuantity}</div>
+        <div className="cartResultWrpr">
+          <div className="numberOfItems">Number of items: {cartQuantity}</div>
+          <div className="OveralPrice">
+            Overall Price: $
+            {cartItems.reduce((total, cartItem) => {
+              const item = allProducts.find((i) => i.id === cartItem.id);
+              return total + (item?.price || 0) * cartItem.quantity;
+            }, 0)}
+          </div>
+        </div>
       </div>
     </div>
   );

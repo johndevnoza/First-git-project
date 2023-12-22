@@ -127,6 +127,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
 }
 .cartItem img {
   width: 212px;
@@ -147,5 +149,11 @@
 }
 .cItem-title {
   width: 30%;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.titlePriceWrpr{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  width: 30%;
 }
