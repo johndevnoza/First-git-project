@@ -1,10 +1,16 @@
 import React from "react";
-import { useCategoriesFetch } from "../../Services/Api/CategoriesFetch";
+import { useCategories } from "../../Services/Api/CategoriesFetch";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../Pages.css";
 
 export default function CategoriesPage() {
-  const { allCategories } = useCategoriesFetch();
+  const { allCategoriesFetch, loading, allCategories } = useCategories();
+
+  useEffect(() => {
+    allCategoriesFetch();
+  }, []);
+
   return (
     <div className="container">
       <div className="categoriesWrapper">
@@ -17,17 +23,21 @@ export default function CategoriesPage() {
           All
         </NavLink>
         <div className="categoriesList">
-          {allCategories.map((categories) => (
-            <NavLink
-              key={categories.id}
-              to={`/products/category/${categories}`}
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
-            >
-              <span key={categories.id}>{categories}</span>
-            </NavLink>
-          ))}
+          {loading ? (
+            <span>Loading.... </span>
+          ) : (
+            allCategories.map((categories) => (
+              <NavLink
+                key={categories.id}
+                to={`/products/category/${categories}`}
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : "test"
+                }
+              >
+                <span key={categories.id}>{...categories}</span>
+              </NavLink>
+            ))
+          )}
         </div>
       </div>
     </div>

@@ -1,23 +1,59 @@
 import React from "react";
 import { useShoppingCart } from "../Services/ShoppingCartContext";
-import { useProductsFetch } from "../Services/Api/ProductsFetch";
+import { useProductsStore } from "../Services/Api/ProductsFetch";
 import "./components.css";
 
-export default function CartItem({ id, quantity, image, title, price }) {
-  const { removeFromCart } = useShoppingCart();
-  const { products } = useProductsFetch();
+export default function CartItem({ id, quantity }) {
+  const { removeFromCart, increaseQuantity, decreaseQuantity } =
+    useShoppingCart();
+  const { allProducts } = useProductsStore();
 
-  const item = products.find((i) => i.id === id);
-  if (item == null) return "test";
+  const item = allProducts.find((i) => i.id === id);
+  if (item == null) return null;
 
   return (
     <div className="container">
-      <div className="cartWrapper" key={id}>
-        <img src={image} />
-        <span>{title}</span>
-        <span>{price}</span>
-        <span>{quantity}</span>
-        <span onClick={() => removeFromCart(id)}>Remove</span>
+      <div className="cartItem">
+        <img src={item.image} />
+        <div className="titlePriceWrpr">
+          <span className="cItem-title">{item.title}</span>
+          <span>{item.price}$</span>
+        </div>
+        <span>{item.price}$</span>
+        <div className="quantityWrapper">
+          <span
+            className="numberControl"
+            onClick={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+              increaseQuantity(id);
+            }}
+          >
+            +
+          </span>
+          <span>x{quantity}</span>
+          <span
+            className="numberControl"
+            onClick={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+              decreaseQuantity(id);
+            }}
+          >
+            -
+          </span>
+        </div>
+        <span className="removeC">{item.price * quantity}$</span>
+        <span
+          className="removeC"
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            removeFromCart(id);
+          }}
+        >
+          X
+        </span>
       </div>
     </div>
   );

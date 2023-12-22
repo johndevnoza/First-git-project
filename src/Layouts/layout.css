@@ -1,12 +1,23 @@
 .header {
   width: 100%;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background: radial-gradient(#ff9100, #ff5b5b);
+  background: radial-gradient(#ff9100, #ff4f5d);
   background-size: 280%;
   animation: headerAnim 2s infinite linear;
   display: flex;
   flex-direction: column;
   height: 200px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+@keyframes headerAnim {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 150%;
+  }
 }
 .headerWrapper {
   width: 100%;
@@ -17,7 +28,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
 .headerLists {
   display: flex;
   gap: 35px;

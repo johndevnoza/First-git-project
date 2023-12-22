@@ -19,6 +19,7 @@
   color: white;
   padding: 15px;
   user-select: none;
+  margin-top: 25px;
 }
 .singleCard img {
   object-fit: cover;
@@ -86,4 +87,26 @@ p {
 }
 .singleWrapper h1 {
   color: black;
+}
+.favWrapper {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 55px;
+  user-select: none;
+}
+.cartResultWrpr {
+  display: flex;
+  width: 100%;
+  background: radial-gradient(#ff9100, #ff4f5d);
+  justify-content: space-around;background-size: 280%;
+  animation: headerAnim 2s infinite linear;
+  padding: 15px 0;
+  color: white;
+  font-weight: 900;
+  font-size: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 8px;
+  margin-top: 20px;
 }

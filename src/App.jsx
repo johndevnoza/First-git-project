@@ -9,6 +9,7 @@ import SingleCategoryPage from "./Pages/categories/SingleCategoryPage";
 import NotFound from "./Pages/NotFound";
 import CartsPage from "./Pages/CartsPage";
 import { ShoppingCartProvider } from "./Services/ShoppingCartContext";
+import FavoritesPage from "./Pages/FavoritesPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           />
           <Route path="/shopping" element={<Shopping />} />
           <Route path="/cart" element={<CartsPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Route>

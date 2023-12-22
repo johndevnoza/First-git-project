@@ -27,7 +27,7 @@ export default function Header() {
                 ) : null}
                 <DropDown lable={"Shopping"} icon={"cart-shopping"}>
                   <Link to={"/cart"}>Cart</Link>
-                  <Link>Favorites</Link>
+                  <Link to={"/favorites"}>Favorites</Link>
                   <Link>Gifts</Link>
                   <Link>Special code</Link>
                 </DropDown>

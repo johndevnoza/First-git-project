@@ -7,23 +7,7 @@ import {
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-export function useCategoriesFetch() {
-  const [allCategories, setAllCategories] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}${ALL_CATEGORIES}`)
-      .then((response) => {
-        setAllCategories(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching categories", error);
-      });
-  }, []);
-
-  return { allCategories };
-}
+import { create } from "zustand";
 
 export function useSingleCategory() {
   const { id } = useParams();
@@ -35,8 +19,8 @@ export function useSingleCategory() {
       .get(`${BASE_URL}${IN_CATEGORY}/${id}`)
       .then((response) => {
         setIsLoading(false);
-        console.log(response.data);
         setSingleCategory(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(`error fetching`, error);
@@ -45,3 +29,23 @@ export function useSingleCategory() {
 
   return { singleCategory, isLoading };
 }
+
+export const useCategories = create((set) => ({
+  allCategories: [],
+  loading: false,
+  hasErrors: false,
+  allCategoriesFetch: () => {
+    set(() => ({ loading: true }));
+    axios
+      .get(`${BASE_URL}${ALL_CATEGORIES}`)
+      .then((response) => {
+        set(() => ({
+          allCategories: response.data,
+          loading: false,
+        }));
+      })
+      .catch(() => {
+        set(() => ({ hasErrors: true, loading: false }));
+      });
+  },
+}));

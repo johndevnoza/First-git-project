@@ -1,16 +1,21 @@
 // ProductsPage.js
 import React from "react";
-import { useProductsFetch } from "../../Services/Api/ProductsFetch";
 import { Link, useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useProductsStore } from "../../Services/Api/ProductsFetch";
+import { useEffect } from "react";
 import SearchResults from "../SearchResult";
 import Card from "../../Components/Common/Card";
 import "../Pages.css";
 
 function ProductsPage() {
-  const { product, isLoading } = useProductsFetch();
+  const { allProductsFetch, allProducts, loading } = useProductsStore();
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("q");
+
+  useEffect(() => {
+    allProductsFetch();
+  }, []);
 
   return (
     <>
@@ -18,19 +23,19 @@ function ProductsPage() {
         <div className="allProductsWrapper">
           {searchQuery ? (
             <SearchResults
-              products={product}
+              products={allProducts}
               searchQuery={searchQuery}
-              isLoading={isLoading}
+              isLoading={loading}
             />
           ) : (
             <>
-              {isLoading ? (
+              {loading ? (
                 <FontAwesomeIcon
                   icon="fa-solid fa-spinner"
                   className="loading"
                 />
               ) : (
-                product.map((product) => (
+                allProducts.map((product) => (
                   <Link key={product.id} to={`/products/${product.id}`}>
                     <Card key={product.id} {...product} />
                   </Link>
