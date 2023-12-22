@@ -12,6 +12,8 @@ export default function CartsPage() {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("q");
 
+  console.log(cartItems);
+
   return (
     <div className="container">
       <div className="cartWrapper">

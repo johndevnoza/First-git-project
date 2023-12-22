@@ -22,14 +22,7 @@ const SearchResults = ({ products, searchQuery, isLoading }) => {
         <>
           {filteredProducts.map((product) => (
             <Link key={product.id} to={`/products/${product.id}`}>
-              <Card
-                key={product.id}
-                title={product.title}
-                category={product.category}
-                description={product.description}
-                price={product.price}
-                image={product.image}
-              />
+              <Card key={product.id} {...product} />
             </Link>
           ))}
         </>
