@@ -114,6 +114,17 @@ p {
   animation: heartIt ease 6s infinite;
   animation-delay: 1s;
 }
+.favorited {
+  background-color: rgb(248, 11, 11);
+  cursor: pointer;
+  color: white;
+  padding: 18px 12px;
+  font-weight: 900;
+  place-self: center;
+  text-align: center;
+  width: min-content;
+  font-size: 18px;
+}
 @keyframes heartIt {
   0% {
     transform: translateY(0px);

@@ -1,5 +1,5 @@
-import { useContext, createContext,  } from "react";
-import useLocalStorage from "./UseLocalStorage";
+import { useContext, createContext } from "react";
+import useLocalStorage from "../localStorage/UseLocalStorage";
 
 const shoppingCartContext = createContext({});
 

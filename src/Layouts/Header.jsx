@@ -6,10 +6,12 @@ import { FontAwesomeIcon } from "../assets/Icons/icons";
 import DropDown from "../Components/Common/DropDown";
 import SearchBar from "../Components/Searchbar";
 import CategoriesPage from "../Pages/categories/CategoriesPage";
-import { useShoppingCart } from "../Services/ShoppingCartContext";
+import { useShoppingCart } from "../Services/favorites&CartContext.jsx/ShoppingCartContext";
+import { useFavorites } from "../Services/favorites&CartContext.jsx/useFavoritesContext";
 
 export default function Header() {
   const { cartQuantity } = useShoppingCart();
+  const { favoriteItems } = useFavorites();
 
   return (
     <div className="header">
@@ -27,7 +29,9 @@ export default function Header() {
                 ) : null}
                 <DropDown lable={"Shopping"} icon={"cart-shopping"}>
                   <Link to={"/cart"}>Cart</Link>
-                  <Link to={"/favorites"}>Favorites</Link>
+                  <Link to={"/favorites"}>
+                    Favorites {favoriteItems.length}
+                  </Link>
                   <Link>Gifts</Link>
                   <Link>Special code</Link>
                 </DropDown>
